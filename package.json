@@ -12,7 +12,7 @@
     "debug:linux": "npm run clean && tsc && cp -r assets manifest.json build/ && cd build && mcconfig -d -m -p lin",
     "debug:m5stack": "npm run clean && tsc && cp -r assets manifest.json build/ && cd build && mcconfig -d -m -p esp32/m5stack",
     "deploy:linux": "npm run clean && tsc && cp manifest.json build/ && cd build && mcconfig -d -m -p lin",
-    "deploy:m5stack": "npm run clean && tsc && cp manifest.json build/ && cd build && mcconfig -d -m -p esp32/m5stack"
+    "deploy:m5stack": "npm run clean && tsc && cp -r assets bleservices manifest.json build/ && cd build && env UPLOAD_PORT=/dev/cu.SLAB_USBtoUART mcconfig -d -m -r 0 -p esp32/m5stack_gray"
   },
   "repository": {
     "type": "git",

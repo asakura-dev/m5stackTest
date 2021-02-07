@@ -1,8 +1,28 @@
 {
-  "include": ["$(MODDABLE)/examples/manifest_base.json"],
+  "defines": {
+		"cfe": { "kern": true }
+	},
+  "include": [
+    "$(MODDABLE)/examples/manifest_base.json",
+    "$(MODDABLE)/examples/manifest_piu.json",
+    "$(MODDABLE)/modules/pins/i2c/manifest.json",
+    "$(MODDABLE)/modules/network/ble/manifest_server.json"
+  ],
   "modules": { 
 		"*": [
-      "./main"
+      "./main",
+      "./Rover"
     ]
-  }
+  },
+  "resources":{
+		"*-alpha": [
+			"$(MODDABLE)/examples/assets/fonts//OpenSans-Semibold-28",
+			"./assets/myFont"
+		]
+  },
+  "ble":{
+		"*": [
+			"./bleservices/*"
+		]
+	}
 }
